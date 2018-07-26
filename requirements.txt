@@ -1,0 +1,3 @@
+matplotlib.pyplot as plt
+tkinter import *
+requests
