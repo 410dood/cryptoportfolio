@@ -4,8 +4,10 @@ import requests
 import json
 import os
 
-os.system('cls')
-
+if os.name == 'nt':
+  os.system('cls')
+else:
+  os.system('clear')
 
 #####################################
 def red_green(amount):
@@ -69,8 +71,8 @@ my_portfolio = [
     {
 
         "sym": "BTC",
-        "amount_owned": 0,
-        "price_paid_per": 0
+        "amount_owned": 10000,
+        "price_paid_per": 0.005
     },
 
     {
@@ -136,7 +138,7 @@ for x in api:
             current_price = Label(root, text="${0:.2f}".format(float(x["price_usd"])), bg="white")
             current_price.grid(row=row_count, column=2, sticky=N + S + E + W)
 
-            price_paid = Label(root, text="${0:.2f}".format(float(coin["price_paid_per"])), bg="silver")
+            price_paid = Label(root, text="${0:.3f}".format(float(coin["price_paid_per"])), bg="silver")
             price_paid.grid(row=row_count, column=3, sticky=N + S + E + W)
 
             profit_loss_per = Label(root, text="${0:.2f}".format(float(profit_loss_per_coin)), bg="white",
